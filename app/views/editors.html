@@ -1,7 +1,8 @@
 <div class="container">
   <ul>
     <li ng-repeat="editor in editors">
-      {{editor.name}}
+      <span>{{editor.name}}</span>
+      <a href="" class="btn btn-xs btn-danger" ng-click="removeEditor(editor)" ng-if="currentUser">x</a>
     </li>
   </ul>
 </div>

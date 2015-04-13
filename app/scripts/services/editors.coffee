@@ -7,17 +7,16 @@
  # # editors
  # Factory in the boardGamesCriticsClientApp.
 ###
-editorsServices = angular.module('editorsServices', ['ngResource'])
+editorsService = angular.module('boardGamesCriticsClientApp')
+                  .service('editorsServices', ['ngResource'])
 
-editorsServices.factory('Editors', ['$resource',
-  ($resource) ->
-    return $resource('http://localhost:8000/editors/:editorId', {},
+editorsService.factory('Editors', ['$resource', 'API_KEY',
+  ($resource, API_KEY) ->
+    return $resource(API_KEY.url + '/editors/:id/', {},
       {
         index: {
           method: 'GET',
-          params: {
-            editorId: ''
-          },
+          url: API_KEY.url + '/editors/'
           isArray: true,
           headers: {
             'Content-Type': 'application/json'
@@ -25,6 +24,7 @@ editorsServices.factory('Editors', ['$resource',
         },
         create: {
           method: 'POST',
+          url: API_KEY.url + '/editors/'
           headers: {
             'Content-Type': 'application/json'
           }
