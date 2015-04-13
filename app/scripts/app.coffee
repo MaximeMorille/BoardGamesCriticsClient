@@ -31,6 +31,9 @@ angular
         templateUrl: 'views/editors.html'
         controller: 'EditorsCtrl'
       )
+      .when '/boardgames',
+        templateUrl: 'views/boardgames.html'
+        controller: 'BoardgamesCtrl'
       .otherwise(
         redirectTo: '/'
       )

@@ -1,0 +1,16 @@
+<div class="container">
+  <ul>
+    <li ng-repeat="boardgame in boardgames">
+      <span>{{boardgame.name}}</span>
+      <span>{{boardgame.editor}}</span>
+      <a href="" class="btn btn-xs btn-danger" ng-click="removeBoardgame(boardgame)" ng-if="currentUser">x</a>
+    </li>
+  </ul>
+</div>
+<form>
+  <input type="text" ng-model="boardgame.name" placeholder="Boardgame's name">
+  <select ng-model="boardgame.editor">
+    <option ng-repeat="editor in editors" value="{{editor.id}}">{{editor.name}}</option>
+  </select>
+  <button ng-click="createBoardgame()">Add</button>
+</form>
