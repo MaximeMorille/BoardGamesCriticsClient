@@ -12,23 +12,26 @@ angular
   .module('boardGamesCriticsClientApp', [
     'ngResource',
     'ngRoute',
-    'editorsServices',
-    'auth'
+    'angular-jwt'
   ])
   .config(($routeProvider, $resourceProvider) ->
     # Don't strip trailing slashes from calculated URLs
     $resourceProvider.defaults.stripTrailingSlashes = false
 
     $routeProvider
-      .when '/',
+      .when('/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
-      .when '/about',
+      )
+      .when('/about',
         templateUrl: 'views/about.html'
         controller: 'AboutCtrl'
-      .when '/editors',
+      )
+      .when('/editors',
         templateUrl: 'views/editors.html'
         controller: 'EditorsCtrl'
-      .otherwise
+      )
+      .otherwise(
         redirectTo: '/'
+      )
   )

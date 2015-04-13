@@ -19,6 +19,7 @@ module.exports = (config) ->
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'
       'bower_components/angular-resource/angular-resource.js'
       'bower_components/angular-route/angular-route.js'
+      'bower_components/angular-jwt/dist/angular-jwt.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee
