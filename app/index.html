@@ -41,7 +41,29 @@
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/editors">Editors</a></li>
               <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <li>
+                <div class="user-card" ng-controller="LoginCtrl" ng-class="{closed: closed}">
+                  <span ng-if="currentUser">{{currentUser.name}}</span>
+                  <a class="opener" ng-click="toggleAuthForm()">
+                    <span class="glyphicon glyphicon-menu-down open-action"></span>
+                    <span class="glyphicon glyphicon-menu-up close-action"></span>
+                  </a>
+
+                  <form class="auth-form" name="loginForm"
+                        ng-submit="login(credentials)" novalidate>
+
+                    <label for="username">Username:</label>
+                    <input type="text" id="username"
+                           ng-model="credentials.username">
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password"
+                           ng-model="credentials.password">
+
+                    <button type="submit">Login</button>
+                  </form>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
