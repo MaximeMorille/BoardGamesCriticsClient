@@ -23,7 +23,6 @@ describe('Service: session', ->
     session.create(token)
 
     # A session must have an userId and a token
-    console.log(session.user)
     expect(session.user.id).toBe(userId)
     expect(session.token).toBe(token)
   )

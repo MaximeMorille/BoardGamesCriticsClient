@@ -25,7 +25,6 @@ angular.module('boardGamesCriticsClientApp')
           .post(API_KEY.url + '/api-token-auth/', credentials)
           .success((data, status, headers, config) ->
             Session.create(data.token)
-            authService.verifyToken(data.token)
           )
           .error((data, status, headers, config) ->
             Session.destroy()
@@ -33,16 +32,6 @@ angular.module('boardGamesCriticsClientApp')
 
       authService.logout = () ->
         Session.destroy()
-
-      authService.verifyToken = (token) ->
-        $http
-          .post(API_KEY.url+ '/api-token-refresh/', {token: token})
-          .success((data, status) ->
-            console.log(data)
-          )
-          .error((data, status) ->
-            console.log(data)
-          )
 
       return authService
   ])
