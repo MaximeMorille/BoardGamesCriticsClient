@@ -52,10 +52,21 @@ module.exports = (config) ->
       'PhantomJS'
     ]
 
+    reporters: [
+      'progress'
+      'coverage'
+    ]
+
+    coverageReporter:
+      type: 'html'
+      dir: 'coverage'
+
+
     # Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
+      'karma-coverage',
       'karma-coffee-preprocessor'
     ]
 
@@ -68,7 +79,8 @@ module.exports = (config) ->
 
     colors: true
 
-    preprocessors: '**/*.coffee': ['coffee']
+    preprocessors:
+      '**/*.coffee': ['coverage']
 
     # Uncomment the following lines if you are using grunt's server to run the tests
     # proxies: '/': 'http://localhost:9000/'
